@@ -2,3 +2,13 @@ node_modules
 .vscode
 package-lock.json
 .next
+out
+
+# Environment variables
+.env
+.env.test
+
+# Logs
+logs
+*.log
+npm-debug.log*
