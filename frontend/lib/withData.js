@@ -43,4 +43,5 @@ function createClient({ headers, initialState }) {
   });
 }
 
+// withApollo will look through our component tree and find any queries we have and make sure to fetch that data for the server before the server sends the page to client
 export default withApollo(createClient, { getDataFromTree });
