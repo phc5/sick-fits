@@ -4,7 +4,7 @@ const OrderStyles = styled.div`
   max-width: 1000px;
   margin: 0 auto;
   border: 1px solid var(--offWhite);
-  box-shadow: var(--bs);
+  box-shadow: var(--boxShadow);
   padding: 2rem;
   border-top: 10px solid red;
   & > p {

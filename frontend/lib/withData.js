@@ -1,6 +1,6 @@
 import { ApolloClient, ApolloLink, InMemoryCache } from '@apollo/client';
 import { onError } from '@apollo/link-error';
-import { getDataFromTree } from '@apollo/react-ssr';
+import { getDataFromTree } from '@apollo/client/react/ssr';
 import { createUploadLink } from 'apollo-upload-client';
 import withApollo from 'next-with-apollo';
 import { endpoint, prodEndpoint } from '../config';
@@ -43,5 +43,4 @@ function createClient({ headers, initialState }) {
   });
 }
 
-// withApollo will look through our component tree and find any queries we have and make sure to fetch that data for the server before the server sends the page to client
 export default withApollo(createClient, { getDataFromTree });

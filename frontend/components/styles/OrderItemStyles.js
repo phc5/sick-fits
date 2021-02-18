@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const OrderItemStyles = styled.li`
-  box-shadow: var(--bs);
+  box-shadow: var(--boxShadow);
   list-style: none;
   padding: 2rem;
   border: 1px solid var(--offWhite);
