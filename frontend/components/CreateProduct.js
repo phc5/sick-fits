@@ -31,7 +31,7 @@ const CREATE_PRODUCT_MUTATION = gql`
 export default function CreateProduct() {
   const { inputs, handleChange, clearForm } = useForm({
     name: '',
-    price: 0,
+    price: '',
     description: '',
   });
   const [
@@ -63,6 +63,7 @@ export default function CreateProduct() {
         <label htmlFor="name">
           Name
           <input
+            required
             type="text"
             id="name"
             name="name"
@@ -74,6 +75,7 @@ export default function CreateProduct() {
         <label htmlFor="price">
           Price
           <input
+            required
             type="number"
             id="price"
             name="price"
@@ -85,6 +87,7 @@ export default function CreateProduct() {
         <label htmlFor="description">
           Description
           <textarea
+            required
             id="description"
             name="description"
             placeholder="Description"
