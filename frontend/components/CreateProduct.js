@@ -1,7 +1,9 @@
 import { useMutation } from '@apollo/client';
 import { gql } from 'graphql-tag';
-import useForm from '../hooks/useForm';
+import Router from 'next/router';
+import { ALL_PRODUCTS_QUERY } from './Products';
 import ErrorMessage from './ErrorMessage';
+import useForm from '../hooks/useForm';
 import Form from './styles/Form';
 
 const CREATE_PRODUCT_MUTATION = gql`
@@ -34,15 +36,19 @@ export default function CreateProduct() {
     price: '',
     description: '',
   });
-  const [
-    createProduct,
-    { loading, error },
-  ] = useMutation(CREATE_PRODUCT_MUTATION, { variables: inputs });
+  const [createProduct, { loading, error, data }] = useMutation(
+    CREATE_PRODUCT_MUTATION,
+    {
+      variables: inputs,
+      refetchQueries: [{ query: ALL_PRODUCTS_QUERY }],
+    }
+  );
 
   async function handleSubmit(event) {
     event.preventDefault();
-    await createProduct();
+    const response = await createProduct();
     clearForm();
+    Router.push(`/product/${response?.data?.createProduct?.id}`);
   }
 
   if (error) return <ErrorMessage />;

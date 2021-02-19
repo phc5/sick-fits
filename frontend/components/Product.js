@@ -4,6 +4,7 @@ import Title from './styles/Title';
 import PriceTag from './styles/PriceTag';
 import formatMoney from '../lib/formatMoney';
 
+// <Product/> is used in <Products/>
 export default function Product({ product }) {
   return (
     <ItemStyles>
