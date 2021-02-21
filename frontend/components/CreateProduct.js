@@ -5,6 +5,7 @@ import { ALL_PRODUCTS_QUERY } from './Products';
 import ErrorMessage from './ErrorMessage';
 import useForm from '../hooks/useForm';
 import Form from './styles/Form';
+import { PAGINATION_QUERY } from './Pagination';
 
 const CREATE_PRODUCT_MUTATION = gql`
   mutation CREATE_PRODUCT_MUTATION(
@@ -40,7 +41,10 @@ export default function CreateProduct() {
     CREATE_PRODUCT_MUTATION,
     {
       variables: inputs,
-      refetchQueries: [{ query: ALL_PRODUCTS_QUERY }],
+      refetchQueries: [
+        { query: ALL_PRODUCTS_QUERY },
+        { query: PAGINATION_QUERY },
+      ],
     }
   );
 
