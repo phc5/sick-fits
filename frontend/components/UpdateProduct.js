@@ -64,8 +64,6 @@ export default function UpdateProduct({ id }) {
   async function handleSubmit(event) {
     event.preventDefault();
     const response = await updateProduct();
-    console.log(response);
-    // Router.push(`/product/${response?.data?.createProduct?.id}`);
   }
 
   if (loading) return <p>Loading...</p>;
