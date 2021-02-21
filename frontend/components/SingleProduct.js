@@ -25,9 +25,10 @@ const SINGLE_PRODUCT_QUERY = gql`
     Product(where: { id: $id }) {
       id
       name
-      price
       description
+      price
       photo {
+        id
         altText
         image {
           publicUrlTransformed
