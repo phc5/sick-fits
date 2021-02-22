@@ -21,6 +21,7 @@ export default function useForm(initialState = {}) {
   }
 
   function resetForm() {
+    console.log(initialState);
     setInputs(initialState);
   }
 

@@ -25,6 +25,7 @@ const { withAuth } = createAuth({
   initFirstItem: {
     fields: ['name', 'email', 'password'],
   },
+  protectIdentities: true,
 });
 
 export default withAuth(
@@ -39,7 +40,6 @@ export default withAuth(
       adapter: 'mongoose',
       url: databaseURL,
       async onConnect(keystone) {
-        console.log('helo');
         if (process.argv.includes('--seed-data')) {
           await insertSeedData(keystone);
         }
