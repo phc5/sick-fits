@@ -12,19 +12,13 @@ const ADD_TO_CART_MUTATION = gql`
 `;
 
 export default function AddToCart({ id }) {
-  const { openCart } = useCart();
   const [addToCart, { loading }] = useMutation(ADD_TO_CART_MUTATION, {
     variables: { id },
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
 
-  async function onCartClick(event) {
-    event.preventDefault();
-    await addToCart();
-    openCart();
-  }
   return (
-    <button disabled={loading} type="button" onClick={onCartClick}>
+    <button disabled={loading} type="button" onClick={addToCart}>
       Add{loading && 'ing'} to cart 🛒
     </button>
   );

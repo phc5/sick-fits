@@ -3,6 +3,7 @@ import SignOut from './SignOut';
 import NavStyles from './styles/NavStyles';
 import { useUser } from './User';
 import { useCart } from '../context/CartContext';
+import CartCount from './CartCount';
 
 export default function Nav() {
   const user = useUser();
@@ -16,6 +17,9 @@ export default function Nav() {
       <SignOut />
       <button type="button" onClick={openCart}>
         🛒
+        <CartCount
+          count={user?.cart?.reduce((acc, curr) => acc + curr?.quantity, 0)}
+        />
       </button>
     </>
   ) : (
