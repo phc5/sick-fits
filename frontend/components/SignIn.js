@@ -38,9 +38,11 @@ export default function SignIn() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    await signin();
+    const res = await signin();
     resetForm();
-    Router.push('/');
+    if (res?.data?.authenticateUserWithPassword?.code !== 'FAILURE') {
+      Router.push('/');
+    }
   }
 
   const error =
